@@ -19,6 +19,7 @@ app.use(express.json());
 try {
      mongoose.connect(MONGODB_URI )
 }catch(err){
+    console.log("error handeled")
     
 }
 
