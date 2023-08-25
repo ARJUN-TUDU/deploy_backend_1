@@ -14,7 +14,7 @@ app.use(express.json());
 
 //database 
 try {
-    await mongoose.connet(DATABASE)
+     mongoose.connet(DATABASE)
 }catch(err){
     
 }
