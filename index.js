@@ -5,49 +5,16 @@ const dotenv = require("dotenv");
 const NewsAPI = require('newsapi');
 dotenv.config();
 
-const DATABASE = process.env.DATABASE
+const express = require("express");
+const home = require("./routes/home");
 
-try{
+// Middlewares
 
-    mongoose.connect(DATABASE);
+app.use(express.json());
 
-}catch(e){
+// Routes
+app.use("/home", home);
 
-    console.log("database connection error");
-
-}
-
-const User = mongoose.model("employees",{
-     name : String , 
-     age : Number,
-     value : Number
-})
-
-app.get("/news",async (req,res)=>{
-
-    try{
-        
-        const data = await User.find();
-        res.json(data);
-        console.log(data);
-
-    }catch(err){
-
-        console.log("sending data failed");
-
-    }
-
-
-})
-
-
-
-app.listen(4000,(err)=>{
-    if(err){
-        console.log("error")
-    }else{
-        console.log("app started")
-    }
-})
-
-
+// connection
+const port = process.env.PORT || 9001;
+app.listen(port, () => console.log(`Listening to port ${port}`));
