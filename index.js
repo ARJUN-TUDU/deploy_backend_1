@@ -6,7 +6,7 @@ const home = require("./routes/home");
 const app =express();
 const MONGODB_URI  = process.env.MONGODB_URI 
 const mongoose = require("mongoose")
-
+const path = require("path")
 const dotenv = require("dotenv");
 
 require('dotenv').config({ path: path.resolve(__dirname, './.env') });
