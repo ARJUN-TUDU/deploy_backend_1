@@ -7,7 +7,9 @@ const app =express();
 const DATABASE = process.env.DATABASE
 const mongoose = require("mongoose")
 
+const dotenv = require("dotenv");
 
+dotenv.config();
 
 // Middlewares
 
