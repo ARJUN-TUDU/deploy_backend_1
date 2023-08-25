@@ -3,13 +3,15 @@ const router = express.Router();
 const mongoose = require("mongoose");
 
 
+const User = mongoose.model("employees",{
+    name : String,
+    age : Number , 
+    value : Number
+})
+
 router.get("/", async (req, res, next) => {
     
-    const User = mongoose.model("employees",{
-        name : String,
-        age : Number , 
-        value : Number
-    })
+    
     
 
     try {
