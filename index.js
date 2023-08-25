@@ -1,13 +1,10 @@
-const mongoose = require("mongoose");
-const express = require("express");
-const app = express();
-const dotenv = require("dotenv");
-const NewsAPI = require('newsapi');
-dotenv.config();
+
+
 
 const express = require("express");
 const home = require("./routes/home");
 
+dotenv.config();
 // Middlewares
 
 app.use(express.json());
