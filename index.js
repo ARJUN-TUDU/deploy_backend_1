@@ -1,23 +1,23 @@
-
-
-
 const express = require("express");
 const home = require("./routes/home");
 const app =express();
-const MONGODB_URI  = process.env.MONGODB_URI 
+
 const mongoose = require("mongoose")
 const path = require("path")
+
+
 const dotenv = require("dotenv");
+dotenv.config();
 
-require('dotenv').config({ path: path.resolve(__dirname, './.env') });
-
+const MONGODB_URI  = process.env.MONGODB_URI 
 // Middlewares
 
 app.use(express.json());
 
 //database 
 try {
-     mongoose.connect(MONGODB_URI )
+      mongoose.connect(MONGODB_URI,
+        { useNewUrlParser: true,useUnifiedTopology: true  } )
 }catch(err){
     console.log("error handeled")
     
@@ -27,5 +27,5 @@ try {
 app.use("/home", home);
 
 // connection
-const port = process.env.PORT || 9001;
+const port = process.env.PORT ;
 app.listen(port, () => console.log(`Listening to port ${port}`));
