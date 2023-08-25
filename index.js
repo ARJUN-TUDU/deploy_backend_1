@@ -4,7 +4,7 @@
 const express = require("express");
 const home = require("./routes/home");
 const app =express();
-const DATABASE = process.env.DATABASE
+const MONGODB_URI  = process.env.MONGODB_URI 
 const mongoose = require("mongoose")
 
 const dotenv = require("dotenv");
@@ -17,7 +17,7 @@ app.use(express.json());
 
 //database 
 try {
-     mongoose.connect(DATABASE)
+     mongoose.connect(MONGODB_URI )
 }catch(err){
     
 }
