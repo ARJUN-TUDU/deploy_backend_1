@@ -3,6 +3,7 @@
 
 const express = require("express");
 const home = require("./routes/home");
+const dotenv = require("dotenv")
 
 dotenv.config();
 // Middlewares
