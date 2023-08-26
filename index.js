@@ -1,5 +1,5 @@
 const express = require("express");
-const home = require("./routes/home");
+
 const app =express();
 
 const mongoose = require("mongoose")
@@ -23,8 +23,33 @@ try {
     
 }
 
-// Routes
-app.use("/home", home);
+const User = mongoose.model("employees",{
+  name : String,
+  age : Number , 
+  value : Number
+})
+
+app.get("/details", async (req, res, next) => {
+  
+  
+  
+
+  try {
+      const data = await User.find();
+      res.json(data);
+      
+  }catch(e){
+      res.json("error");
+  }
+
+
+
+});
+
+
+
+
+
 
 // connection
 const port = process.env.PORT ;
